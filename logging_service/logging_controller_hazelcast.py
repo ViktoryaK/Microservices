@@ -5,9 +5,9 @@ logging = Flask("Logging")
 
 client1 = hazelcast.HazelcastClient(
     cluster_name="hw3",
-    cluster_members=["172.18.0.2:5701"]
+    # cluster_members=["172.18.0.2:5701"]
     # cluster_members=["172.18.0.4:5701"]
-    # cluster_members=["172.18.0.5:5701"]
+    cluster_members=["172.18.0.3:5701"]
 )
 
 @logging.route('/log', methods=['GET', 'POST'])
@@ -26,7 +26,7 @@ def log_web_client():
 
 
 if __name__ == '__main__':
-    logging.run(port=8082)
+    # logging.run(port=8082)
     # logging.run(port=8083)
-    # logging.run(port=8084)
+    logging.run(port=8084)
     client1.shutdown()
